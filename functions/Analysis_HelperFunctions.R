@@ -217,6 +217,46 @@ getHumanMouseHomologs <- function(human.genes) {
 }
 
 
+getOfficialMouseGenes <- function(mouse.genes) {
+  ens.mouse <- useMart("ensembl", dataset = "mmusculus_gene_ensembl", 
+                       host = "https://dec2021.archive.ensembl.org/")
+  
+  # Get official symbol names, accounting for synonyms
+  tmp1 <- getBM(attributes = c("external_gene_name", "ensembl_gene_id"),
+                filters = "external_gene_name",
+                values = mouse.genes,
+                mart = ens.mouse)
+  tmp1$external_synonym <- ""
+  
+  unknown <- setdiff(mouse.genes, tmp1$external_gene_name)
+  tmp2 <- getBM(attributes = c("external_gene_name", "ensembl_gene_id", "external_synonym"),
+                filters = "external_synonym",
+                values = unknown,
+                mart = ens.mouse)
+  
+  mouse.genes.official <- rbind(tmp1, tmp2) %>% unique()
+}
+
+
+getMouseHumanHomologs <- function(mouse.genes) {
+  # Temporarily using archive because new ensembl update crashes biomart
+  ens.human <- useMart("ensembl", dataset = "hsapiens_gene_ensembl", 
+                       host = "https://dec2021.archive.ensembl.org/")
+  ens.mouse <- useMart("ensembl", dataset = "mmusculus_gene_ensembl", 
+                       host = "https://dec2021.archive.ensembl.org/")
+  
+  homologs <- getLDS(attributes = c('external_gene_name', 'ensembl_gene_id'),
+                     filters = c('external_gene_name'), 
+                     values = unique(mouse.genes), 
+                     mart = ens.mouse,
+                     attributesL = c('external_gene_name', 'ensembl_gene_id'), 
+                     martL = ens.human)
+  colnames(homologs) <- c("Mouse.gene.name", "Mouse.gene.stable.ID", 
+                          "Human.gene.name", "Human.gene.stable.ID")
+  return(homologs)
+}
+
+
 ##### GO analysis functions #####
 
 # Runs GProfiler to get statisticaly significant GO terms.
