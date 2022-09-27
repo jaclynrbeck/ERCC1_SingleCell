@@ -17,18 +17,19 @@ file_gene_symbols <- file.path(dir_data, "gene_symbols.rds")
 # Un-normalized and normalized Seurat objects, and analyzed objects
 dir_seurat <- file.path(dir_data, "Seurat")
 file_seurat_unnorm <- file.path(dir_seurat, "seurat_unnorm_2022-09-26.rds")
-file_seurat_norm <- file.path(dir_seurat, "seurat_liger_2022-09-26.rds")
+file_liger_norm <- file.path(dir_seurat, "liger_2022-09-26.rds")
 file_seurat_analyzed <- file.path(dir_seurat, "seurat_analyzed_2022-09-26.rds")
 
 
 # Cluster / Genotype markers
 dir_output <- file.path(dir_data, "Output")
 dir_go <- file.path(dir_output, "GO_Analysis")
-dir_dpa <- file.path(dir_output, "DPA")
 file_markers_all <- file.path(dir_output, "all_markers_2022-09-26.rds")
 file_markers_clusters <- file.path(dir_output, 'DiffGenes_byCluster_2022-09-26.xlsx')
-file_markers_genotypes <- file.path(dir_output, 'DiffGenes_byGenotype_2022-09-26.xlsx')
+file_markers_genotypes <- file.path(dir_output, 'DiffGenes_byGenotype_2022-09-26.csv')
 file_markers_clusters_vs_genotype <- file.path(dir_output, 'DiffGenes_byGenotypePerCluster_2022-09-26.xlsx')
+file_markers_batch <- file.path(dir_output, "DiffGenes_Batch2v1_2022-09-26.csv")
+file_gsea_markers <- file.path(dir_go, "gsea_markers_KOvWT.rds")
 
 
 # Figures
