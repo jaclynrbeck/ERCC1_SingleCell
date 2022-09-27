@@ -1,0 +1,7 @@
+name,sample,fastq
+KO-1,ERCC4,/pub/jaclynb1/ERCC1_SingleCell/samples22022877
+KO-2,ERCC6,/pub/jaclynb1/ERCC1_SingleCell/samples22022877
+KO-3,ERCC9,/pub/jaclynb1/ERCC1_SingleCell/samples22032723
+WT-1,ERCC2,/pub/jaclynb1/ERCC1_SingleCell/samples22022877
+WT-2,ERCC3,/pub/jaclynb1/ERCC1_SingleCell/samples22022877
+WT-3,ERCC10,/pub/jaclynb1/ERCC1_SingleCell/samples22032723

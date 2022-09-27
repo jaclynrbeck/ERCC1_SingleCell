@@ -1,0 +1,7 @@
+sample_id,molecule_h5
+WT-1,/pub/jaclynb1/ERCC1_SingleCell/CellRanger/WT-1/outs/molecule_info.h5
+WT-2,/pub/jaclynb1/ERCC1_SingleCell/CellRanger/WT-2/outs/molecule_info.h5
+WT-3,/pub/jaclynb1/ERCC1_SingleCell/CellRanger/WT-3/outs/molecule_info.h5
+KO-1,/pub/jaclynb1/ERCC1_SingleCell/CellRanger/KO-1/outs/molecule_info.h5
+KO-2,/pub/jaclynb1/ERCC1_SingleCell/CellRanger/KO-2/outs/molecule_info.h5
+KO-3,/pub/jaclynb1/ERCC1_SingleCell/CellRanger/KO-3/outs/molecule_info.h5
